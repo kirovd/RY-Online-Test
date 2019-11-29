@@ -28,7 +28,6 @@
         
         function doFetch(ev){        
             let uri = "https://kirovd.github.io/RY-Online-Test/sample.json";
-            //Please change the url based on your own laptop directory such as: file or your own localhost.
             
 //            let uri ="https://rydevtask.azurewebsites.net/api/testme?KEY=[da77c73f-cbaf-4fe8-908e-9fe71c6afa02]"; //this shows a BAD HTTP fetch. 
             
@@ -60,60 +59,7 @@
         }
     </script>
     
-    <p>The HTML base tag is done to show the url. Please open source code and change the let uri = " to your localhost in order to see the working stage of getting the url."</p>
+    <p>The HTML base tag is done to show the url."</p>
     <p><a href="testme?KEY=[da77c73f-cbaf-4fe8-908e-9fe71c6afa02]">HTML base tag</a></p>
 </body>
 </html>
-
-<!--
-<html>
-  <head>
-  </head>
-  <body>
-    <div id="content"></div>
-    <script dataType= application/json>
-      function hndlr(response) {
-      for (var i = 0; i < response.items.length; i++) {
-        var item = response.items[i];
-        
-        document.getElementById("content").innerHTML += "<br>" + item.htmlTitle;
-      }
-    }
-    </script>
-    <script src="https://rydevtask.azurewebsites.net/api/testme?KEY=[da77c73f-cbaf-4fe8-908e-9fe71c6afa02]">
-    </script>
-  </body>
-</html>
--->
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-</head>
-
-<body>
-    <div class="getUrl"></div>
-
-    <script>
-    $.getJSON('https://rydevtask.azurewebsites.net/api/testme?KEY=[da77c73f-cbaf-4fe8-908e-9fe71c6afa02]', function(data) {
-        
-        var text = `URL: ${data.url}<br>
-                    ID: ${data.id}<br>
-                    postMessage: ${data.message}`
-                    
-        
-        $(".getUrl").html(text);
-    });
-    </script>
-    <script>
-fetch('http://localhost:801/OnlineTestRY/sample.json')
-    .then(res => res.json())
-    .then((out) => {
-        console.log('Output: ', out);
-}).catch(err => console.error(err));
-</script>
-    
-</body>
-</html>-->
