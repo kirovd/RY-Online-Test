@@ -1,0 +1,6 @@
+{
+    "url":"https://rydevtask.azurewebsites.net/api/testme",
+    "id": "da77c73f-cbaf-4fe8-908e-9fe71c6afa02", 
+    "title": "Welcome to the friendly RY online test",
+    "body": "Your task is to write some code which will make a http get request this same URL. You must pass a query string of id=da77c73f-cbaf-4fe8-908e-9fe71c6afa02. You may use any library/tool/shortcut at your disposal."
+}

@@ -1,0 +1,119 @@
+
+<html class=" ">
+<head>
+    <meta charset="UTF-8 .html .css .js .xml .json .rss .atom .md">
+    <title>Online Test RY</title>
+    <meta name="viewport" content="width=device-width">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Lato:400,700,900" rel="stylesheet">
+  <base href="https://rydevtask.azurewebsites.net/api/testme?KEY=[da77c73f-cbaf-4fe8-908e-9fe71c6afa02]">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+</head>
+<body>
+<header>
+        <h1>Get the URL</h1>
+    </header>
+    <main>
+        <p>Click here and you will get your url.</p>
+    </main>
+    <script>
+        let p;
+        
+        document.addEventListener('DOMContentLoaded', 
+            function(){
+                p = document.querySelector('main>p');
+                p.addEventListener('click', doFetch);
+            });
+        
+        function doFetch(ev){        
+            let uri = "http://localhost:801/OnlineTestRY/sample.json";
+            //Please change the url based on your own laptop directory such as: file or your own localhost.
+            
+//            let uri ="https://rydevtask.azurewebsites.net/api/testme?KEY=[da77c73f-cbaf-4fe8-908e-9fe71c6afa02]"; //this shows a BAD HTTP fetch. 
+            
+            let h = new Headers();
+            h.append('Accept', 'uri', 'id');
+            
+            let req = new Request(uri, {
+                method: 'GET',
+                headers: h,
+                mode: 'no-cors'
+            });
+            
+            fetch(req)
+            .then( (response)=>{
+                if(response.ok){
+                    return response.json();
+                }else{
+                    throw new Error('BAD HTTP fetch');
+                }
+            })
+            .then( (jsonData) =>{
+                console.log(jsonData);
+                p.textContent = JSON.stringify(jsonData, null, 4);
+            })
+            .catch( (err) =>{
+                console.log('ERROR:', err.message);
+            });
+        
+        }
+    </script>
+    
+    <p>The HTML base tag is done to show the url. Please open source code and change the let uri = " to your localhost in order to see the working stage of getting the url."</p>
+    <p><a href="testme?KEY=[da77c73f-cbaf-4fe8-908e-9fe71c6afa02]">HTML base tag</a></p>
+</body>
+</html>
+
+<!--
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script dataType= application/json>
+      function hndlr(response) {
+      for (var i = 0; i < response.items.length; i++) {
+        var item = response.items[i];
+        
+        document.getElementById("content").innerHTML += "<br>" + item.htmlTitle;
+      }
+    }
+    </script>
+    <script src="https://rydevtask.azurewebsites.net/api/testme?KEY=[da77c73f-cbaf-4fe8-908e-9fe71c6afa02]">
+    </script>
+  </body>
+</html>
+-->
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div class="getUrl"></div>
+
+    <script>
+    $.getJSON('https://rydevtask.azurewebsites.net/api/testme?KEY=[da77c73f-cbaf-4fe8-908e-9fe71c6afa02]', function(data) {
+        
+        var text = `URL: ${data.url}<br>
+                    ID: ${data.id}<br>
+                    postMessage: ${data.message}`
+                    
+        
+        $(".getUrl").html(text);
+    });
+    </script>
+    <script>
+fetch('http://localhost:801/OnlineTestRY/sample.json')
+    .then(res => res.json())
+    .then((out) => {
+        console.log('Output: ', out);
+}).catch(err => console.error(err));
+</script>
+    
+</body>
+</html>-->
